@@ -81,7 +81,13 @@ void scroll_accelerate(int _direction)
 	if (v == 0) {
 		d = 0;
 		traveled = 0;
-		v = v0;
+
+		int scroll_faster = 1;
+		if (direction == SCROLL_RIGHT || direction == SCROLL_LEFT) {
+			scroll_faster = 4;
+		}
+
+		v = v0 * scroll_faster;
 	}
 }
 
